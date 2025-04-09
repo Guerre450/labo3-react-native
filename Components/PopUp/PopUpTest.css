@@ -1,0 +1,21 @@
+.popUpTestModal {
+    text-align: center;
+}
+
+.popUpTestModal > button{
+    background: none;
+    border-radius: 100%;
+    outline:none ;
+    border-style: none;
+}
+
+.popUpTestModal > button:hover{
+    background: rgba(128, 128, 128, 0.43);
+    border-width: 0;
+}
+
+.popUpTestModal > button:active{
+    background: rgba(128, 128, 128, 1);
+    border-width: 0;
+    box-shadow: #323232 5px 5px 5px 1px;
+}

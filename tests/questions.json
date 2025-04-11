@@ -1,0 +1,10 @@
+{
+  "Intro": "Bonjour cher utilisateur, veuillez répondre à nos questions en attribuant une note sur 10 : 1 = 'Pas du tout d'accord', 5 = 'Pas trop sûr' et 10 = 'Tout à fait d'accord'.",
+  "question1": "Avez-vous trouvé qu'il était facile de comprendre les fonctions de chaque bouton à première vue ?",
+  "question2": "Était-il facile pour vous d'utiliser les boutons de la manette ?",
+  "question3": "Après avoir appuyé sur les boutons, trouvez-vous que leur retour haptique (feedback) était efficace ?",
+  "question4": "Trouvez-vous que le moment où vous appuyez sur un bouton et l'exécution de l'action sur le Chromecast était rapide ?",
+  "question5": "Selon vous, la manette convient-elle aux personnes peu à l'aise avec la technologie ?",
+  "question6": "Avez-vous remarqué des erreurs liées au design UX ? (Merci de nous les signaler !)",
+  "question7": "Est-ce que l'indicateur de volume est assez clair ?(par exemple: pouvez-vous différencier le niveau du volume quand il est à la moitié ou un volume au-dessus)"
+}

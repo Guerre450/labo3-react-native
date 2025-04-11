@@ -51,7 +51,7 @@ function MediaBar(props){
     console.log(isPlaying);
     return(
         <View className={"mediaBar"} style={styles.mediaBar}>
-            <Pressable title="previous" onPress={() => {props.prev()}}>
+            <Pressable title="previous" onPress={() => {props.prev() || props.keyDetection("previous") }}>
                 <Svg width="40" height="40" viewBox="0 0 35 45" fill="none" xmlns="http://www.w3.org/2000/Svg">
                     <Path
                         d="M1.45833 43.2083L1.45833 1.79164M34 26.7266V18.2736C34 12.8685 34 10.1657 32.8653 8.60836C31.8757 7.25012 30.3561 6.37812 28.6842 6.20769C26.7673 6.01229 24.4318 7.37416 19.763 10.0976L12.5176 14.3241L12.4925 14.3386C7.90268 17.016 5.60619 18.3557 4.83236 20.1021C4.15607 21.6284 4.15605 23.3692 4.83235 24.8955C5.60758 26.6451 7.9111 27.9888 12.5176 30.6759L19.763 34.9024C24.4317 37.6259 26.7673 38.9882 28.6842 38.7928C30.3561 38.6224 31.8757 37.7485 32.8653 36.3903C34 34.833 34 32.1316 34 26.7266Z"
@@ -59,14 +59,14 @@ function MediaBar(props){
                 </Svg>
             </Pressable>
 
-            <Pressable title="backward" onPress={() => {props.seekTimeVideo(-10)}}>
+            <Pressable title="backward" onPress={() => {props.seekTimeVideo(-10) || props.keyDetection("backward")}}>
                 <Svg width="40" height="40" viewBox="0 0 47 37" fill="none" xmlns="http://www.w3.org/2000/Svg">
                     <Path
                         d="M11 21L1 11M1 11L11 1M1 11H33.5C40.4036 11 46 16.5964 46 23.5C46 30.4036 40.4036 36 33.5 36H21"
                         stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </Svg>
             </Pressable>
-            <Pressable title="play/pause" onPress={() => {props.changePlayState()}}>
+            <Pressable title="play/pause" onPress={() => {props.changePlayState() || props.keyDetection("play/pause")}}>
                 {!isPlaying ?
                 <Svg width="40" height="40" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/Svg">
                     <Path
@@ -86,14 +86,14 @@ function MediaBar(props){
              }
             </Pressable>
 
-            <Pressable title="forward" onPress={() => {props.seekTimeVideo(10)}}>
+            <Pressable title="forward" onPress={() => {props.seekTimeVideo(10) || props.keyDetection("forward") }}>
                 <Svg width="40" height="40" viewBox="0 0 47 37" fill="none" xmlns="http://www.w3.org/2000/Svg">
                     <Path
                         d="M36 21L46 11M46 11L36 1M46 11H13.5C6.59644 11 1 16.5964 1 23.5C1 30.4036 6.59644 36 13.5 36H26"
                         stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </Svg>
             </Pressable>
-            <Pressable title="next" onPress={() => {props.next()}}>
+            <Pressable title="next" onPress={() => {props.next() || props.keyDetection("next")}}>
                 <Svg width="40" height="40" viewBox="0 0 35 45" fill="none" xmlns="http://www.w3.org/2000/Svg">
                     <Path
                         d="M33.5417 1.79169V43.2084M1 18.2734V26.7264C1 32.1315 1 34.8343 2.13466 36.3916C3.12427 37.7499 4.64389 38.6219 6.31576 38.7923C8.23266 38.9877 10.5682 37.6258 15.237 34.9024L22.4824 30.6759L22.5075 30.6614C27.0973 27.984 29.3938 26.6443 30.1676 24.8979C30.8439 23.3716 30.8439 21.6308 30.1676 20.1045C29.3924 18.3549 27.0889 17.0112 22.4824 14.3241L15.237 10.0976C10.5683 7.37413 8.23266 6.01177 6.31576 6.20717C4.64389 6.3776 3.12427 7.25147 2.13466 8.60972C1 10.167 1 12.8684 1 18.2734Z"

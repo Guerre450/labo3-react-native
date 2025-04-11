@@ -32,7 +32,7 @@ export default function Bar(props){
 
             <View className="slidecontainer">
 
-                <Slider   style={{width: 300, height: 100}} lowerLimit={0} upperLimit={100} minimumValue={0} maximumValue={100} onSlidingComplete={ value => {props.changeTime?.(value)}} value={barValue}
+                <Slider   style={{width: 300, height: 100}} lowerLimit={0} upperLimit={100} minimumValue={0} maximumValue={100} onSlidingComplete={ value => {props.changeTime?.(value) || props.keyDetection("slider")}} value={barValue}
                            minimumTrackTintColor={'#112233'}
                            maximumTrackTintColor={'#000000'} 
                            thumbTintColor={'#FFFFFF'} 

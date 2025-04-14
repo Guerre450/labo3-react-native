@@ -45,9 +45,11 @@ export default function App() {
 
     container : {
       width : "100%",
+      height: "100%",
       backgroundColor: "grey",
       flexDirection: "column",
       alignItems: "center",
+      justifyContent: "space-around"
 
     },
     item : {

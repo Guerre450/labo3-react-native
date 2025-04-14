@@ -6,9 +6,18 @@ import questions from "../../tests/questions.json"
 //source : https://blog.logrocket.com/creating-reusable-pop-up-modal-react/
 import  { useRef, useEffect, useState } from 'react';
 import QuestionTemplate from "./QuestionTemplate/QuestionTemplate";
-import { Pressable, View,Text } from "react-native";
+import { Pressable, View,Text,StyleSheet } from "react-native";
 
 const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
+
+const styles = StyleSheet.create({
+  view : {
+  },
+}
+)
+
+
+
     const answerData = {
         "question1":0,
         "question2": 0,
@@ -56,8 +65,8 @@ const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
      }
 
     return (
-      <View className="popUpTestModal">
-        <Text>{questions["Intro"]}</Text>
+      <View style={styles.view} className="popUpTestModal">
+        <Text style={{fontSize:16}}>{questions["Intro"]}</Text>
         {questionsList.map((item, key) => <QuestionTemplate question={item} callBackChange={answerChanged} valuable={answerData[key]} key={key} num={key}/> )}
         
         <Pressable  onPress={()=>{sendData()}} >

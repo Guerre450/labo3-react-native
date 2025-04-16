@@ -6,6 +6,7 @@ import Header from './Components/Header/Header';
 import MediaBar from './Components/MediaBar/MediaBar';
 import { CastActions } from './utilities/CastActions';
 import Bar from './Components/ProgressBar/Bar';
+import Volume from "./Components/Volume/Volume";
 
 export default function App() {
 
@@ -46,6 +47,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <CastButton style={{width: 70, height: 70, tintColor: 'black'}}/>
+      <Volume ></Volume>
       <Header  startVideo={startVideo}></Header>
       <Bar mediaStatus={curMediaStatus} streamPos={streamPos} changeTime={changeTime}></Bar>
       <MediaBar mediaStatus={curMediaStatus}

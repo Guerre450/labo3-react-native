@@ -120,7 +120,7 @@ export const CastActions = () => {
         mediaFallBack();
         if (curMediaStatus){
             console.log(curMediaStatus.playerState)
-            if (curMediaStatus.playerState == "playing") {
+            if (curMediaStatus.playerState === "playing") {
                 client.pause();
             } else {
                 client.play();
@@ -165,6 +165,17 @@ export const CastActions = () => {
             })
         }
     }
+
+    // const volumeDown = (vol) => {
+    //     let volume = (vol.media ? vol.media.volume.level/1.0 * 100 : 0)
+    //     if(vol == 0){
+    //         // TODO mute
+    //     }
+    //     else:
+    //
+    // }
+
+
     return {
         handlePlayPause,
         startVideo,

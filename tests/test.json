@@ -1,0 +1,13 @@
+{
+"0": {"text":"Appuyez sur la touche Chromecast", "task":"broadcast"},
+"1": {"text":"Mettez le volume au minimum.", "task":"cc"},
+"2": {"text":"Mettez le volume au maximum.", "task": "cc"},
+"3": {"text":"Mettez le volume en sourdine.", "task": "cc"},
+"4": {"text":"Passez à la prochaine vidéo.", "task": "next"},
+"5": {"text":"Avancez rapidement dans la vidéo.", "task": "forward"},
+"6": {"text":"Reculez rapidement dans la vidéo.", "task": "backward"},
+"7": {"text":"Changer le temps de la video à partir de la barre à un endroit de votre choix.", "task": "slider"},
+"8": {"text":"Mettez la vidéo en pause.", "task": "play/pause"},
+"9": {"text":"Passez à la vidéo précédent.", "task": "previous"},
+"10": {"text":"cacabag", "task": "unachievable"}
+}

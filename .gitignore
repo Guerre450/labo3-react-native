@@ -34,3 +34,9 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+build/
+
+
+# clutter i don't need
+.idea

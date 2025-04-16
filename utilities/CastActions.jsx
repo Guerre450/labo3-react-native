@@ -31,6 +31,9 @@ export const CastActions = () => {
 
 
     const startVideo = () => {
+        if (client){
+
+        
         client.loadMedia({
             autoplay: true,
             queueData: {
@@ -56,6 +59,7 @@ export const CastActions = () => {
 
             },
         });
+    }
     }
 
     const stopVideo = () => {
@@ -111,7 +115,7 @@ export const CastActions = () => {
     }
 
     const mediaFallBack = () => {
-        if (!curMediaStatus){
+        if (!curMediaStatus && client != null){
             startVideo();
             setListeners();
         }

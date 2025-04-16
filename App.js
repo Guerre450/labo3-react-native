@@ -7,11 +7,16 @@ import MediaBar from './Components/MediaBar/MediaBar';
 import { CastActions } from './utilities/CastActions';
 import Bar from './Components/ProgressBar/Bar';
 import Volume from "./Components/Volume/Volume";
+import PopUpTest from './Components/PopUp/PopUpTest';
+import useTutorial from './utilities/tutorial.jsx'
+import useClickTracker from './utilities/useClickTracker.jsx'
+import { useState } from 'react';
+
 
 export default function App() {
 
-
-
+  const [clicksTracker, logButtonAction] = useClickTracker(null)
+  const [text,keyDetection, sessionDetection, timeList] = useTutorial(logButtonAction)
   const {
     handlePlayPause,
     startVideo,
@@ -25,13 +30,28 @@ export default function App() {
     streamPos,
     changeTime
   } = CastActions();
+
+
+  
+
+
+  const [testButtonState, setTestButtonState] = useState(false);
+
+  function onTestButtonInteract() {
+    setTestButtonState(!testButtonState)
+}
+
+
+
   const styles = StyleSheet.create({
 
     container : {
       width : "100%",
+      height: "100%",
       backgroundColor: "grey",
       flexDirection: "column",
       alignItems: "center",
+      justifyContent: "space-around"
 
     },
     item : {
@@ -46,13 +66,22 @@ export default function App() {
   });
   return (
     <View style={styles.container}>
+      <PopUpTest
+                      taskTest={text}
+                      timeList={timeList}
+                      clicksTracker={clicksTracker}
+                      isOpen={testButtonState}
+                      onClose={onTestButtonInteract}
+      ></PopUpTest>
       <CastButton style={{width: 70, height: 70, tintColor: 'black'}}/>
       <Volume ></Volume>
-      <Header  startVideo={startVideo}></Header>
-      <Bar mediaStatus={curMediaStatus} streamPos={streamPos} changeTime={changeTime}></Bar>
+
+      <Header  startVideo={startVideo} testOpen={onTestButtonInteract} keyDetection={keyDetection}></Header>
+      <Bar mediaStatus={curMediaStatus} keyDetection={keyDetection} streamPos={streamPos} changeTime={changeTime}></Bar>
       <MediaBar mediaStatus={curMediaStatus}
        next={goNext}
         prev={goPrev}
+        keyDetection={keyDetection}
          seekTimeVideo={handleSeek}
           changePlayState={handlePlayPause}
           

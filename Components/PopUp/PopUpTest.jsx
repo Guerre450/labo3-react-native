@@ -1,14 +1,23 @@
 import "./PopUp.css"
 import "./PopUpTest.css"
-import { useTranslation } from 'react-i18next';
 import PopUp from "./PopUp"
 import {postData} from "../../utilities/apiCall"
-import questions from "../../../public/questions.json"
+import questions from "../../tests/questions.json"
 //source : https://blog.logrocket.com/creating-reusable-pop-up-modal-react/
 import  { useRef, useEffect, useState } from 'react';
 import QuestionTemplate from "./QuestionTemplate/QuestionTemplate";
+import { Pressable, View,Text,StyleSheet } from "react-native";
 
 const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
+
+const styles = StyleSheet.create({
+  view : {
+  },
+}
+)
+
+
+
     const answerData = {
         "question1":0,
         "question2": 0,
@@ -18,7 +27,6 @@ const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
         "question6": 0
     }
     const [userAnswerData, setUserAnswerData] = useState(answerData)
-    const {t, i18n} = useTranslation()
     const [testStatus, setTestStatus] = useState(false);
     function sendData(){
         postData(clicksTracker, "Clicks");
@@ -27,12 +35,12 @@ const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
         setTestStatus(true);
     }
 
-    function answerChanged(event){
-        const id = parseInt(event.currentTarget.id) + 1;
-        let value = event.currentTarget?.value
+    function answerChanged(num, value){
+        const id = parseInt(num) + 1;
+        console.log(value)
         if (value){
         setUserAnswerData(lastData =>{
-            lastData["question" + (id)]  = value
+            lastData["question" + (id)]  = parseInt(value);
         return lastData})
       }
         console.log(userAnswerData);
@@ -47,24 +55,24 @@ const PopUpTest = ({ isOpen, onClose, clicksTracker,taskTest,timeList  }) => {
     //taskTest != "cacabag"
     if (taskTest != "cacabag"){
       return (
-        <h2>{taskTest}</h2>
+        <Text>{taskTest}</Text>
       )
  
     }
 
     if (testStatus){
-      return( <h1>Test complété</h1>)
+      return( <Text>Test complété</Text>)
      }
 
     return (
-      <div className="popUpTestModal">
-        <h2>{questions["Intro"]}</h2>
+      <View style={styles.view} className="popUpTestModal">
+        <Text style={{fontSize:16}}>{questions["Intro"]}</Text>
         {questionsList.map((item, key) => <QuestionTemplate question={item} callBackChange={answerChanged} valuable={answerData[key]} key={key} num={key}/> )}
         
-        <button  onClick={sendData} >
-        <h1>{t("send-button")}</h1>
-        </button>
-      </div>
+        <Pressable  onPress={()=>{sendData()}} >
+        <Text>{"Send"}</Text>
+        </Pressable>
+      </View>
     );
   }
   return (

@@ -1,5 +1,5 @@
 {
-"0": {"text":"Appuyez sur la touche Chromecast", "task":"broadcast"},
+"0": {"text":"Appuyez sur la touche Media", "task":"broadcast"},
 "1": {"text":"Mettez le volume au minimum.", "task":"low"},
 "2": {"text":"Mettez le volume au maximum.", "task": "high"},
 "3": {"text":"Mettez le volume en sourdine.", "task": "low"},

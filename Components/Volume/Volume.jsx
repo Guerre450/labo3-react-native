@@ -23,7 +23,7 @@ export default function Volume(props) {
 
 
     let imgVolume = () => {
-        let val = props.mediaStatus?.volume
+        let val = props.mediaStatus ? props.mediaStatus.volume : 0.5;
 
             if (val === 0){
                 return require('../../assets/imgVolume/off.png');

@@ -1,5 +1,5 @@
 export function postData(data,location){
-    const url = "http://192.168.137.1:5000/" + location;
+    const url = "http://10.10.23.224:5000/" + location;
     fetch(url, {
         method: "POST",
         headers: {"Content-Type" : "application/json",},

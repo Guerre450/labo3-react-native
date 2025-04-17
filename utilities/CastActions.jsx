@@ -174,9 +174,9 @@ export const CastActions = () => {
         }
     }
 
-    const changeVolume = (vol) => { // volume value from 0 to 100
+    const changeVolume = (vol) => { // volume value from 0 to 1.0
         mediaFallBack(); 
-        if (curMediaStatus){
+        if (curMediaStatus && client != null){
         client.setStreamVolume(vol)
         }
 

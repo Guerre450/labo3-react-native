@@ -8,7 +8,7 @@ import Slider from '@react-native-community/slider';
 export default function Bar(props){
     let durationInSec = Math.floor(props.mediaStatus?.mediaInfo.streamDuration);
     let durationInMin = Math.floor(durationInSec /60);
-    //console.log((Math.floor(props.streamPos) / durationInSec) * 100 );
+    console.log((Math.floor(props.streamPos) / durationInSec) * 100 );
     let barValue = props.mediaStatus ? (Math.floor(props.streamPos) / durationInSec) * 100 : 50;
     return (
         <>

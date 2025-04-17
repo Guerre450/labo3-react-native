@@ -29,7 +29,11 @@ export const CastActions = () => {
     
     }, [client]);
 
+    const startMedia = () =>{
+        startVideo();
+        setListeners();
 
+    }
     const startVideo = () => {
         if (client){
 
@@ -170,19 +174,18 @@ export const CastActions = () => {
         }
     }
 
-    // const volumeDown = (vol) => {
-    //     let volume = (vol.media ? vol.media.volume.level/1.0 * 100 : 0)
-    //     if(vol == 0){
-    //         // TODO mute
-    //     }
-    //     else:
-    //
-    // }
+    const changeVolume = (vol) => { // volume value from 0 to 100
+        mediaFallBack(); 
+        if (curMediaStatus){
+        client.setStreamVolume(vol)
+        }
+
+    }
 
 
     return {
         handlePlayPause,
-        startVideo,
+        startMedia,
         stopVideo,
         curMediaStatus,
         isStarted,
@@ -192,6 +195,7 @@ export const CastActions = () => {
         goPrev,
         streamPos,
         changeTime,
+        changeVolume,
       };
 
 };

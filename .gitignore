@@ -40,3 +40,5 @@ build/
 
 # clutter i don't need
 .idea
+
+.vscode/

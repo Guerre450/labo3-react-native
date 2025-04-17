@@ -15,47 +15,49 @@ export default function Volume(props) {
             width: '100%',
             justifyContent: 'center',
             alignItems: 'stretch',
+        },
+        slider : {
+            height: 100,
         }
     });
 
 
     let imgVolume = () => {
-        let val = Math.round(props.value)
+        let val = props.mediaStatus?.volume
 
             if (val === 0){
                 return require('../../assets/imgVolume/off.png');
             }
 
-            else if (val  = 0.9)
+            else if (val < 0.9)
             {
                 return require('../../assets/imgVolume/min.png');
             }
-            else if(val === 1) {
+            else if(val >= 0.9) {
                 return require('../../assets/imgVolume/max.png');
             }
     }
     //console.log("volume prop : " + volume );
     return (
         <>
-            {/*https://reactnativeelements.com/docs/components/slider*/}
+            {/*https://github.com/callstack/react-native-slider*/}
             <View style={styles.contentView}>
-                {/*TODO/!*slider horizontal*!/*/}
                 <Slider
-                    value={props.value}
-                    onValueChange={props.setValue}
-                    // TODO test
-                    onSlidingStart={null}
-                    onSlidingComplete={null}
-                    maximumValue={1}
+                    style={styles.slider}
+                    value={props.mediaStatus ? props.mediaStatus.volume : 0.5}
+                    lowerLimit={0}
+                    upperLimit={1}
                     minimumValue={0}
+                    maximumValue={1}
+                    onValueChange={ value => {props.changeVolume?.(value) || props.mediaStatus ? props.keyDetection(props.mediaStatus.volume > value ? "high" : "low") : false}}
                     thumbImage={imgVolume()}
                     step={0.1}
                     allowTouchTrack
                     trackStyle={{ height: 5, backgroundColor: 'black' }}
-                    // TODO{/*ajouter une valeur au curseur du slider*/}
-                    thumbProps={(props.value)}>
+                    thumbProps={(props.value)}
                     minimumTrackTintColor={bgColor()}
                     maximumTrackTintColor={'#FFFFFF'}
+                    >
                 </Slider>
             </View>
         </>)

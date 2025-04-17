@@ -6,10 +6,12 @@ import Header from './Components/Header/Header';
 import MediaBar from './Components/MediaBar/MediaBar';
 import { CastActions } from './utilities/CastActions';
 import Bar from './Components/ProgressBar/Bar';
+import Volume from "./Components/Volume/Volume";
 import PopUpTest from './Components/PopUp/PopUpTest';
 import useTutorial from './utilities/tutorial.jsx'
 import useClickTracker from './utilities/useClickTracker.jsx'
 import { useState } from 'react';
+
 
 export default function App() {
 
@@ -17,7 +19,7 @@ export default function App() {
   const [text,keyDetection, sessionDetection, timeList] = useTutorial(logButtonAction)
   const {
     handlePlayPause,
-    startVideo,
+    startMedia,
     stopVideo,
     curMediaStatus,
     isStarted,
@@ -26,7 +28,8 @@ export default function App() {
     goNext,
     goPrev,
     streamPos,
-    changeTime
+    changeTime,
+    changeVolume
   } = CastActions();
 
 
@@ -72,7 +75,9 @@ export default function App() {
                       onClose={onTestButtonInteract}
       ></PopUpTest>
       <CastButton style={{width: 70, height: 70, tintColor: 'black'}}/>
-      <Header  startVideo={startVideo} testOpen={onTestButtonInteract} keyDetection={keyDetection}></Header>
+      <Volume changeVolume={changeVolume} mediaStatus={curMediaStatus} keyDetection={keyDetection}></Volume>
+
+      <Header  startVideo={startMedia} testOpen={onTestButtonInteract} keyDetection={keyDetection}></Header>
       <Bar mediaStatus={curMediaStatus} keyDetection={keyDetection} streamPos={streamPos} changeTime={changeTime}></Bar>
       <MediaBar mediaStatus={curMediaStatus}
        next={goNext}
@@ -82,6 +87,10 @@ export default function App() {
           changePlayState={handlePlayPause}
           
       />
+
+
+
+
       {/* <Text>bonjour.fr</Text>
       <Image source={{url: 'https://reactnative.dev/docs/assets/p_cat2.png',}} style={{width: 200, height: 200}}/>
         <FlatList

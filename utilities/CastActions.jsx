@@ -29,7 +29,11 @@ export const CastActions = () => {
     
     }, [client]);
 
+    const startMedia = () =>{
+        startVideo();
+        setListeners();
 
+    }
     const startVideo = () => {
         if (client){
 
@@ -124,7 +128,7 @@ export const CastActions = () => {
         mediaFallBack();
         if (curMediaStatus){
             console.log(curMediaStatus.playerState)
-            if (curMediaStatus.playerState == "playing") {
+            if (curMediaStatus.playerState === "playing") {
                 client.pause();
             } else {
                 client.play();
@@ -169,9 +173,19 @@ export const CastActions = () => {
             })
         }
     }
+
+    const changeVolume = (vol) => { // volume value from 0 to 100
+        mediaFallBack(); 
+        if (curMediaStatus){
+        client.setStreamVolume(vol)
+        }
+
+    }
+
+
     return {
         handlePlayPause,
-        startVideo,
+        startMedia,
         stopVideo,
         curMediaStatus,
         isStarted,
@@ -181,6 +195,7 @@ export const CastActions = () => {
         goPrev,
         streamPos,
         changeTime,
+        changeVolume,
       };
 
 };

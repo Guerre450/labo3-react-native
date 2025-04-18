@@ -19,7 +19,7 @@
 <b>Ces tests ont pour but de savoir s'il est facile d'utiliser la telecomande sur un telephone intelligent.</b>
 
 ## Resultat des tests
-![img.png](img.png)
+![](F:\Native\labo3-react-native\tests\db_feedback_image.png)
 
 Après avoir effectué des tests avec l'aide de nos collègues de classe (Merci à Marc-Antoine, Marco et Sarah).
 nous avons pu remarquer quelque soucis avec nos telecommande. Les images qui vont suivre sont une representation
